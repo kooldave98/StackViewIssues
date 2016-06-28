@@ -22,7 +22,7 @@ namespace StackView
 
             Window = new UIWindow (UIScreen.MainScreen.Bounds);
 
-            Window.RootViewController = new ViewController ();
+            Window.RootViewController = new ViewController2 ();
 
             Window.MakeKeyAndVisible ();
 

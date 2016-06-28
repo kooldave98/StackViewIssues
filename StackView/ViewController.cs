@@ -14,22 +14,18 @@ namespace StackView
         {
             base.ViewDidLoad ();
 
-            apply_simple_border (View);
-
             View.AddSubview (ScrollView = new UIScrollView ());
             ScrollView.TranslatesAutoresizingMaskIntoConstraints = false;
-            apply_simple_border (ScrollView);
-            ScrollView.BackgroundColor = UIColor.Purple;
+
+
 
 
             ScrollView.AddSubview (stackView = new UIStackView ());
 
             stackView.TranslatesAutoresizingMaskIntoConstraints = false;
-            //RatingView.Axis = UILayoutConstraintAxis.Vertical;
-            stackView.Alignment = UIStackViewAlignment.Bottom;
+            stackView.Axis = UILayoutConstraintAxis.Vertical;
+            stackView.Alignment = UIStackViewAlignment.Center;
             stackView.Distribution = UIStackViewDistribution.Fill;
-            //apply_simple_border (stackView, UIColor.Purple.CGColor);
-            stackView.BackgroundColor = UIColor.Orange;
 
 
         }
@@ -44,9 +40,6 @@ namespace StackView
 
                 IncreaseRating ();
             }
-
-
-            //RatingView.LayoutIfNeeded ();
 
         }
 
@@ -63,11 +56,12 @@ namespace StackView
                                         stackView.Frame.Top == ScrollView.Bounds.Top + sibling_sibling_margin &&
                                         stackView.Frame.Left == ScrollView.Bounds.Left + sibling_sibling_margin &&
                                         stackView.Frame.Right == ScrollView.Bounds.Right - sibling_sibling_margin &&
-                                        stackView.Frame.Bottom == ScrollView.Bounds.Bottom - sibling_sibling_margin
+                                        stackView.Frame.Bottom == ScrollView.Bounds.Bottom - sibling_sibling_margin &&
+                                        stackView.Frame.Width == ScrollView.Bounds.Width - double_sibling_sibling_margin
                                  );
         }
 
-        void IncreaseRating ()//bool animate = false)
+        void IncreaseRating ()
         {
 
             // Create new rating icon and add it to stack
@@ -76,12 +70,12 @@ namespace StackView
             icon.ContentMode = UIViewContentMode.ScaleAspectFit;
             stackView.AddArrangedSubview (icon);
 
-            apply_simple_border (icon);
+
 
             // Animate stack
             //UIView.Animate (0.25, () => {
             //    // Adjust stack view
-            //    RatingView.LayoutIfNeeded ();
+            //    stackView.LayoutIfNeeded ();
             //});
 
         }

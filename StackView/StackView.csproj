@@ -84,6 +84,7 @@
     <Compile Include="ViewController.cs" />
     <Compile Include="BaseViewController.cs" />
     <Compile Include="EasyLayout.cs" />
+    <Compile Include="ViewController2.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
